@@ -1,6 +1,6 @@
 {
   "name": "dx-open",
-  "version": "0.0.2",
+  "version": "0.0.4",
   "description": "Open NPM Module Github page from your console\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[C\u001b[Cin your browser from your console",
   "main": "app.js",
   "bin": {

@@ -2,7 +2,7 @@
 
 Open any NPM module github page in your browser from your console.
 
-First install dx-open model globally on your system
+First install dx-open module globally on your system
 
     npm install -global dx-open 
 
