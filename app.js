@@ -1,3 +1,4 @@
+#! /usr/bin/env node
 const opn = require('opn')
 const program = require('commander')
 const request = require('request')
