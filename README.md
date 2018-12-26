@@ -14,3 +14,7 @@ Or
     dx-open --open lodash
 
 If a Github repository is not found. It will open npmjs.com module page.
+
+## License
+
+MIT
