@@ -46,13 +46,39 @@ getData = async (input) => {
     });
 }
 
+filterData = (data) => {
+    try {
+        let parsedData = JSON.parse(data)
+        let url = (parsedData.repository && parsedData.repository.url) || 'https://www.npmjs.com/package/' + parsedData.name
+        if (url.startsWith('git+')) url = url.split("git+").pop()
+        if (url.endsWith('.git')) url = url.split(".git").shift()
+        if (url.startsWith('git@')) {
+            url = url.split("git@").pop()
+            url = 'https://' + url
+        }
+        if (url.indexOf('.com:') > 0) {
+            url = url.replace(/.com:/i,".com/")
+        }
+        return url
+    } catch (error) {
+        logIt({'error':true, 'message': 'Could not find Module'})
+    }
+}
+
+opnUrl = (url) => {
+    try {
+        console.log('Opening url : ' + url)
+        opn(url)
+    } catch (error) {
+        logIt({'error': true, 'message': 'Could not open the webpage. Try again later.'})
+    }
+}
+
 analyiseDataAndOpenInBrowser = (data) => {
     if (typeof data === 'string') {
             try {
-                let parsedData = JSON.parse(data)
-                let url = (parsedData.repository && parsedData.repository.url) || ''
-                url = ((url && url.startsWith('git+')) ? url.split("git+").pop() : url) || 'https://www.npmjs.com/package/' + parsedData.name
-                opn(url)
+                const url = filterData(data)
+                opnUrl(url)
             } catch (error) {
                 logIt({'error':true, 'message': 'Could not find Module'})
             }
